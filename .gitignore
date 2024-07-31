@@ -27,10 +27,14 @@ replay_pid*
 
 *.bat
 
-service-activator/gradlew
+#service-activator/gradlew
 
-service-activator/gradle/wrapper/
+#service-activator/gradle/wrapper/
 
 integration-flow/gradlew
 
 integration-flow/gradle/wrapper/
+
+integration-getting-started/gradle/wrapper/
+
+integration-getting-started/gradlew
