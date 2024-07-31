@@ -30,3 +30,7 @@ replay_pid*
 service-activator/gradlew
 
 service-activator/gradle/wrapper/
+
+integration-flow/gradlew
+
+integration-flow/gradle/wrapper/
