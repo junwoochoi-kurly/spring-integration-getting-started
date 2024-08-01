@@ -26,7 +26,7 @@ public class PubSubIntegrationConfig extends AbstractConfig {
 
     @Bean
     @InboundChannelAdapter(value = "pubSubFileChannel", poller = @Poller(fixedDelay = "1000"))
-    public MessageSource<File> fileReadingMessageSource() {
+    public MessageSource<File> fileReadingMessageSource01() {
         FileReadingMessageSource messageSource = new FileReadingMessageSource();
         messageSource.setDirectory(new File(INPUT_DIR));
         messageSource.setFilter(new SimplePatternFileListFilter(FILE_PATTERN));
