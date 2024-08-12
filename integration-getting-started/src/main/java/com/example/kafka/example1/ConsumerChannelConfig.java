@@ -1,4 +1,4 @@
-package com.example.kafka;
+package com.example.kafka.example1;
 
 import org.apache.kafka.clients.consumer.ConsumerConfig;
 import org.apache.kafka.common.serialization.StringDeserializer;
@@ -32,22 +32,23 @@ public class ConsumerChannelConfig {
 
     @Bean
     public KafkaMessageDrivenChannelAdapter<String, String> kafkaMessageDrivenChannelAdapter() {
-        KafkaMessageDrivenChannelAdapter<String, String> kafkaMessageDrivenChannelAdapter = new KafkaMessageDrivenChannelAdapter<>(
-            kafkaListenerContainer()
-        );
-        kafkaMessageDrivenChannelAdapter.setOutputChannel(consumerChannel());
+//        KafkaMessageDrivenChannelAdapter<String, String> kafkaMessageDrivenChannelAdapter = new KafkaMessageDrivenChannelAdapter<>(
+//            kafkaListenerContainer()
+//        );
+//        kafkaMessageDrivenChannelAdapter.setOutputChannel(consumerChannel());
 
-        return kafkaMessageDrivenChannelAdapter;
+//        return kafkaMessageDrivenChannelAdapter;
+        return null;
     }
 
-    @SuppressWarnings("unchecked")
-    @Bean
-    public ConcurrentMessageListenerContainer<String, String> kafkaListenerContainer() {
-        ContainerProperties containerProperties = new ContainerProperties(springIntegrationKafkaTopic);
-
-        return (ConcurrentMessageListenerContainer<String, String>) new ConcurrentMessageListenerContainer<>(
-            consumerFactory(), containerProperties);
-    }
+//    @SuppressWarnings("unchecked")
+//    @Bean
+//    public ConcurrentMessageListenerContainer<String, String> kafkaListenerContainer() {
+//        ContainerProperties containerProperties = new ContainerProperties(springIntegrationKafkaTopic);
+//
+//        return (ConcurrentMessageListenerContainer<String, String>) new ConcurrentMessageListenerContainer<>(
+//            consumerFactory(), containerProperties);
+//    }
 
     @Bean
     public ConsumerFactory<?, ?> consumerFactory() {

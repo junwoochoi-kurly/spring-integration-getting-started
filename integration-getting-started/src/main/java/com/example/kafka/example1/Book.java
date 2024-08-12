@@ -1,4 +1,4 @@
-package com.example.kafka;
+package com.example.kafka.example1;
 
 public class Book {
 

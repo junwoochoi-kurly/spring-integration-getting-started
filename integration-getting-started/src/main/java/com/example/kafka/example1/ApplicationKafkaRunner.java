@@ -1,4 +1,4 @@
-package com.example.kafka;
+package com.example.kafka.example1;
 
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.ApplicationArguments;

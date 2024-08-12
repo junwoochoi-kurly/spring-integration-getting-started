@@ -21,6 +21,7 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-integration'
     implementation 'org.springframework.integration:spring-integration-file'
     implementation 'org.springframework.integration:spring-integration-kafka'
+    implementation 'com.fasterxml.jackson.core:jackson-databind:2.15.0'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
     testImplementation 'org.springframework.integration:spring-integration-test'
     testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
