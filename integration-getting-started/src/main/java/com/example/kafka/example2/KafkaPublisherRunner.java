@@ -3,6 +3,9 @@ package com.example.kafka.example2;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
+/**
+./kafka-console-producer --topic topic1 --bootstrap-server localhost:9092 --property "parse.key=true" --property "key.separator=:"message:{"message":"junwoo"}
+ * */
 @Component
 public class KafkaPublisherRunner implements CommandLineRunner {
 
