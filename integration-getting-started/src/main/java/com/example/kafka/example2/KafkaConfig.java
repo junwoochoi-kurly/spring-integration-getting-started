@@ -5,6 +5,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.integration.annotation.Poller;
 import org.springframework.integration.annotation.ServiceActivator;
+import org.springframework.integration.channel.DirectChannel;
 import org.springframework.integration.channel.QueueChannel;
 import org.springframework.integration.kafka.inbound.KafkaMessageDrivenChannelAdapter;
 import org.springframework.kafka.config.ConcurrentKafkaListenerContainerFactory;
@@ -26,8 +27,8 @@ public class KafkaConfig {
     }
 
     @Bean
-    public PollableChannel inboundChannel() {
-        return new QueueChannel();
+    public DirectChannel testQueueChannel() {
+        return new DirectChannel();
     }
 
     @Bean("simpleKafkaListenerContainer")
@@ -56,11 +57,11 @@ public class KafkaConfig {
     @Bean("simpleKafkaMessageDrivenChannelAdapter")
     public KafkaMessageDrivenChannelAdapter<String, String> kafkaMessageAdapter(
         ConcurrentMessageListenerContainer<String, String> simpleKafkaListenerContainer,
-        PollableChannel inboundChannel,
+        DirectChannel testQueueChannel,
         SimpleKafkaMessageConverter messageConverter) {
 
         KafkaMessageDrivenChannelAdapter<String, String> adapter = new KafkaMessageDrivenChannelAdapter<>(simpleKafkaListenerContainer);
-        adapter.setOutputChannel(inboundChannel);
+        adapter.setOutputChannel(testQueueChannel);
         adapter.setMessageConverter(messageConverter);
         return adapter;
     }

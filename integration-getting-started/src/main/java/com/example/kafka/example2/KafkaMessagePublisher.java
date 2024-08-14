@@ -15,6 +15,6 @@ public class KafkaMessagePublisher {
     public void sendMessage(String message) {
         String topic = "topic1";
         kafkaTemplate.send(topic, message);
-        System.out.println("Message sent to topic1: " + message);
+//        System.out.println("Message sent to topic1: " + message);
     }
 }

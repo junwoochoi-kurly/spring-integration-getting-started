@@ -17,9 +17,11 @@ public class KafkaPublisherRunner implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        String jsonMessage = "{\"message\":\"Hello Kafka\"}";
-
-        kafkaMessagePublisher.sendMessage(jsonMessage);
+        for (int i = 1; i <= 100; i++) {
+            String jsonMessage = String.format("{\"message\":\"Hello Kafka %d\"}", i);
+            kafkaMessagePublisher.sendMessage(jsonMessage);
+        }
     }
+
 
 }

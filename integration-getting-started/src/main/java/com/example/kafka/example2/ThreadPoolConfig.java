@@ -12,11 +12,14 @@ public class ThreadPoolConfig {
     @Bean(name = "taskExecutorCustom")
     public Executor taskExecutor() {
         ThreadPoolTaskExecutor executor = new ThreadPoolTaskExecutor();
-        executor.setCorePoolSize(10); // 기본적으로 생성할 스레드 수
-        executor.setMaxPoolSize(20); // 최대 스레드 수
-        executor.setQueueCapacity(50); // 큐 용량
-        executor.setThreadNamePrefix("MyThreadPool-"); // 스레드 이름 접두사
+        executor.setCorePoolSize(40);
+        executor.setQueueCapacity(100);
+        executor.setAllowCoreThreadTimeOut(true);
+        executor.setThreadNamePrefix("taskExecutorCustom-");
+        executor.setWaitForTasksToCompleteOnShutdown(true);
+        executor.setAwaitTerminationSeconds(30);
         executor.initialize();
+
         return executor;
     }
 }
