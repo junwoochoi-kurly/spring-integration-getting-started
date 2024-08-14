@@ -24,4 +24,5 @@ public class KafkaMessageHandler {
         logger.info("finished (QueueChannel): {}", payload.getMessage());
     }
 
+    
 }
