@@ -1,4 +1,4 @@
-FROM openjdk:11-jre
+FROM openjdk:17-jdk-slim
 VOLUME /tmp
-COPY target/your-application.jar app.jar
+COPY build/libs/integration-getting-started-0.0.1-SNAPSHOT.jar app.jar
 ENTRYPOINT ["java", "-jar", "/app.jar"]

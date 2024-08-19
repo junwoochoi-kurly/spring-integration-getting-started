@@ -17,11 +17,10 @@ public class KafkaPublisherRunner implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        for (int i = 1; i <= 20; i++) {
+        for (int i = 1; i <= 100000; i++) {
             String jsonMessage = String.format("{\"message\":\"Hello Kafka %d\"}", i);
             kafkaMessagePublisher.sendMessage(jsonMessage);
         }
     }
-
 
 }
