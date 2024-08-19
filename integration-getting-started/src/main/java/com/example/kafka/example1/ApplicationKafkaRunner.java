@@ -29,8 +29,8 @@ public class ApplicationKafkaRunner implements ApplicationRunner {
 
         List<Book> books = bookPublisher.getBooks();
         for (Book book : books) {
-            Map<String, Object> headers = Collections.singletonMap(KafkaHeaders.TOPIC, book.getGenre().toString());
-            messageChannel.send(new GenericMessage<>(book.toString(), headers));
+//            Map<String, Object> headers = Collections.singletonMap(KafkaHeaders.TOPIC, book.getGenre().toString());
+//            messageChannel.send(new GenericMessage<>(book.toString(), headers));
         }
 
         System.out.println("Finished ProducerApplication run method...");
