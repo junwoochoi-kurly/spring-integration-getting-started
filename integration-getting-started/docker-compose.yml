@@ -57,3 +57,46 @@ services:
       KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: INTERNAL:PLAINTEXT,EXTERNAL:PLAINTEXT
       KAFKA_ADVERTISED_LISTENERS: INTERNAL://kafka3:9092,EXTERNAL://localhost:19094
       KAFKA_INTER_BROKER_LISTENER_NAME: INTERNAL
+
+  kafka-ui:
+    image: provectuslabs/kafka-ui
+    container_name: kafka-ui
+    ports:
+      - "10000:8080"
+    restart: always
+    environment:
+      - KAFKA_CLUSTERS_0_NAME=local
+      - KAFKA_CLUSTERS_0_BOOTSTRAPSERVERS=kafka1:9092,kafka2:9093,kafka3:9094
+      - KAFKA_CLUSTERS_0_ZOOKEEPER=zookeeper:2181
+
+  app1:
+    image: your-application-image
+    container_name: app1
+    volumes:
+      - ./config/application-host1.properties:/config/application.properties
+    ports:
+      - "8081:8080"
+    environment:
+      - SPRING_CONFIG_LOCATION=/config/application.properties
+
+  app2:
+    image: your-application-image
+    container_name: app2
+    volumes:
+      - ./config/application-host2.properties:/config/application.properties
+    ports:
+      - "8082:8080"
+    environment:
+      - SPRING_CONFIG_LOCATION=/config/application.properties
+
+  app3:
+    image: your-application-image
+    container_name: app3
+    volumes:
+      - ./config/application-host3.properties:/config/application.properties
+    ports:
+      - "8083:8080"
+    environment:
+      - SPRING_CONFIG_LOCATION=/config/application.properties
+
+
